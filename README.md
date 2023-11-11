@@ -297,3 +297,73 @@ print(aparicoes)
 #   'o': 1}
 # )
 ```
+# Colocando tudo em prática
+```python
+from collections import Counter # Importando a classe Counter
+
+def analisa_frequencia_de_letras(texto):
+    # Criando um Counter a partir das letras em minúsculo.
+    aparicoes = Counter(texto.lower())
+    # Somando os *valores* da contagem.
+    total_de_caracteres = sum(aparicoes.values())
+
+
+    # Criando uma lista de tuplas composta pela letra 
+    # e o percentual de frequência, para cada tupla 
+    # retornada pelo dicionário com o método items().
+    proporcoes = [
+        (letra, frequencia / total_de_caracteres) 
+        for letra, frequencia in aparicoes.items()
+    ]
+    # Exemplo de retorno: [ ('a', 20), ('b', 15), ... ]
+
+    
+    # O contador é criado a partir de um dicionário porque
+    # se você usar a lista de tuplas diretamente, o que será
+    # contado são as tuplas, e não o valor que corresponde
+    # a cada tupla na (segunda posição).
+    proporcoes = Counter(dict(proporcoes))
+    
+    # Mas se um Counter é um dicionário, por que não usar
+    # apenas o dicionário? Por causa do método most_common.
+
+    # O método most_common do objeto Counter retorna 
+    # uma lista de tuplas com os valores mais comuns
+    # e sua contagem.
+    mais_comuns = proporcoes.most_common(10)
+
+    print('Os 10 elementos mais comuns: ')
+    # Iterando a lista de tuplas...
+    for caractere, proporcao in mais_comuns:
+        print(f"{caractere} => {proporcao * 100 :.2f}%")
+        # Note a formatação de ponto flutuante:
+        # começa com dois pontos, seguido de ponto,
+        # e finalmente o número de casas decimais 
+        # seguido do tipo (no caso, f de flutuante).
+
+analisa_frequencia_de_letras(texto1)
+analisa_frequencia_de_letras(texto2)
+# Resultado:
+# Os 10 elementos mais comuns: 
+#   => 15.61%
+# a => 12.59%
+# e => 9.11%
+# o => 7.54%
+# s => 7.10%
+# r => 6.76%
+# i => 5.46%
+# d => 3.88%
+# t => 3.85%
+# n => 3.52%
+# Os 10 elementos mais comuns:
+#   => 16.43%
+# a => 11.05%
+# o => 9.37%
+# e => 7.83%
+# r => 5.53%
+# s => 5.48%
+# i => 4.90%
+# d => 4.08%
+# m => 3.99%
+# u => 3.84%
+```
