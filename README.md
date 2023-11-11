@@ -146,3 +146,50 @@ print(aparicoes.get('xpto')) # Resultado: None.
 print(aparicoes.get('xpto', 0)) # Resultado: 0.
 print(aparicoes.get('cachorro', 0)) # Resultado: 2.
 ```
+# Mais operações de dicionários
+## Como adicionar, alterar e remover elementos de um dicionário
+```python
+# Acrescentando elementos ao dicionário:
+aparicoes['Carlos'] = 1
+
+# Atualizando elementos no dicionário é a mesma coisa:
+aparicoes['Carlos'] = 3
+
+# Removendo elementos do dicionário:
+del aparicoes['Carlos']
+```
+## Procurando elementos em um dicionário
+As chaves são procuradas no dicionário usando o operador `in`.
+```python
+print("cachorro" in aparicoes) # Retorna True.
+```
+Para pesquisar nos valores, use a lista resultante da função `values()` do dicionário.
+
+## Iterando sobre o dicionário
+Os dicionários tem as seguintes funções:
+1. `keys()`: retorna as chaves;
+2. `values()`: retorna os valores;
+3. `items()`: retorna as tuplas (key, val).
+
+```python
+# Iterando sobre as chaves do dicionário:
+[ print(key) for key in aparicoes ]
+
+# Outra forma de iterar sobre as chaves do dicionário:
+[ print(key) for key in aparicoes.keys() ]
+# Perceba a lista keys() retornada do dicionário aparicoes.
+
+# Iterando sobre os valores do dicionário:
+[ print(val) for val in aparicoes.values() ]
+# Perceba a lista values() retornada do dicionário aparicoes.
+
+
+# Acessando o dicionário por meio do índice:
+[ print(key, aparicoes[key]) for key in aparicoes ]
+
+# Usando o método items() do dicionário e tuplas temporárias:
+[ print(tupla) for tupla in aparicoes.items() ]
+
+# Desempacotando a tupla em valores separados:
+[ print(key, '=', val) for key, val in aparicoes.items() ]
+```
