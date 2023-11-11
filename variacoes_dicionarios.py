@@ -39,3 +39,42 @@ print(aparicoes)
 # defaultdict(<function funcao at 0x00000275862F04A0>, 
 #   {0: 100, 1: 30}
 # )
+
+
+aparicoes = defaultdict(int)
+
+for palavra in meu_texto.split():
+    aparicoes[palavra] += 1
+print(aparicoes)
+
+class Conta:
+    def __init__(self):
+        print("Criando uma conta")
+
+contas = defaultdict(Conta)
+print(contas[15])
+print(contas[17])
+print(contas[15])
+
+from collections import Counter
+aparicoes = Counter(meu_texto.split())
+
+print(aparicoes)
+# Resultado: Counter({
+#   'meu': 2, 
+#   'gosto': 2, 
+#   'muito': 2, 
+#   'de': 2, 
+#   'e': 2, 
+#   'cachorro': 2, 
+#   'bem': 1, 
+#   'vindo': 1, 
+#   'nome': 1, 
+#   'é': 1, 
+#   'guilherme': 1, 
+#   'eu': 1, 
+#   'nomes': 1, 
+#   'tenho': 1, 
+#   'o': 1}
+# )
+

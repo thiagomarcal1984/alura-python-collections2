@@ -243,3 +243,57 @@ print(aparicoes)
 #   {0: 100, 1: 30}
 # )
 ```
+# Counter
+Usando um `defaultdict` para contar as palavras de um texto:
+```python
+aparicoes = defaultdict(int)
+
+for palavra in meu_texto.split():
+    # Se não achar a aparição da palavra, retorna zero.
+    aparicoes[palavra] += 1 
+print(aparicoes)
+```
+Usando construtores diferentes para o `defaultdict`:
+
+```python
+class Conta:
+    def __init__(self):
+        print("Criando uma conta")
+
+contas = defaultdict(Conta)
+print(contas[15]) # O objeto não existia ainda no defaultdict.
+print(contas[17])
+print(contas[15]) # O objeto agora existe no defaultdict.
+# Resultado:
+# Criando uma conta
+# <__main__.Conta object at 0x0000023B50383710>
+# Criando uma conta
+# <__main__.Conta object at 0x0000023B50383750>
+# <__main__.Conta object at 0x0000023B50383710> #Aqui o objeto já existia.
+```
+## A classe `Counter` do pacote `collections`
+Há uma classe chamada `Counter` do pacote `collections`, que é um dicionário que recebe uma lista como parâmetro. Cada elemento da lista será uma chave do `Counter`, e o valor será a contagem dos elementos dessa lista.
+
+```python
+from collections import Counter
+aparicoes = Counter(meu_texto.split())
+
+print(aparicoes)
+# Resultado: Counter({
+#   'meu': 2, 
+#   'gosto': 2, 
+#   'muito': 2, 
+#   'de': 2, 
+#   'e': 2, 
+#   'cachorro': 2, 
+#   'bem': 1, 
+#   'vindo': 1, 
+#   'nome': 1, 
+#   'é': 1, 
+#   'guilherme': 1, 
+#   'eu': 1, 
+#   'nomes': 1, 
+#   'tenho': 1, 
+#   'o': 1}
+# )
+```
