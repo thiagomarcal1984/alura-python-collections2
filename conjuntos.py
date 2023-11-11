@@ -51,3 +51,34 @@ print(b - a) # Resultado: {8, 6}
 print('O operador "ou exclusivo" (caret, ^) retorna a união menos a interseção:')
 print(a ^ b) # 2 e 4 estão na interseção; não aparecem no resultado.
 # Resultado: {1, 3, 5, 6, 8}
+
+usuarios = {1,5,76,34,52,13,17}
+print(f"Usuários: {usuarios}")
+print(f"Tamanho da lista: {len(usuarios)}")
+
+# usuarios.append(13) # Vai falhar: append pressupõe ordem.
+# lista.append(el) insere um elemento no fim da lista.
+# Conjunto não é lista.
+
+usuarios.add(13)
+print(f"Usuários: {usuarios}")
+print(f"Tamanho da lista: {len(usuarios)}")
+# Mesmo tamanho: o elemento 13 já existe.
+
+usuarios.add(765)
+print(f"Usuários: {usuarios}")
+print(f"Tamanho da lista: {len(usuarios)}")
+# Tamanho diferente: o elemento 765 não existia.
+
+usuarios.remove(765)
+print(f"Usuários: {usuarios}")
+print(f"Tamanho da lista: {len(usuarios)}")
+# Tamanho diferente: o elemento 765 foi removido.
+
+
+# frozensets são conjuntos imutáveis.
+usuarios = frozenset(usuarios)
+# usuarios.add(70) 
+# # Vai falhar: não se acrescenta nada ao frozenset.
+# usuarios.remove(1)
+# # Vai falhar: não se remove nada do frozenset.

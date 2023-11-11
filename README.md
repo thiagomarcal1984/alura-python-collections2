@@ -63,3 +63,35 @@ print(b - a) # Resultado: {8, 6}
 print(a ^ b) # 2 e 4 estão na interseção; não aparecem no resultado.
 # Resultado: {1, 3, 5, 6, 8}
 ```
+# Outro tipo de conjunto e conjuntos de outros tipos
+```python
+usuarios = {1, 5, 76, 34, 52, 13, 17}
+
+usuarios.add(13)
+# Resultado: {1, 34, 17, 52, 5, 76, 13}
+# Mesmo tamanho: o elemento 13 já existe.
+
+usuarios.append(13) # Vai falhar: append pressupõe ordem.
+# lista.append(el) insere um elemento no fim da lista.
+# Conjunto não é lista.
+
+usuarios.add(765)
+# Resultado: {1, 34, 17, 52, 5, 765, 76, 13}
+# Tamanho diferente: o elemento 765 não existia.
+
+usuarios.remove(765)
+# Resultado: {1, 34, 17, 52, 5, 76, 13}
+# Tamanho diferente: o elemento 765 foi removido.
+```
+
+Frozensets são conjuntos imutáveis.
+
+```python
+usuarios = frozenset(usuarios)
+
+usuarios.add(70) 
+# Vai falhar: não se acrescenta nada ao frozenset.
+
+usuarios.remove(1)
+# Vai falhar: não se remove nada do frozenset.
+```
