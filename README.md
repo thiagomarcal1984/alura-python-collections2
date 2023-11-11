@@ -37,3 +37,29 @@ print(set([*usuarios_data_science, *usuarios_machine_learning]))
 # Por isso a descompactação da lista tem que ser dentro
 # de outra lista.
 ```
+# Mais operações de conjuntos
+Os quatro operadores:
+
+1. Pipe (`|`): retorna a união dos conjuntos.
+2. Ampersand (`&`): retorna a interseção dos conjuntos.
+3. Hifen (`-`): retorna a diferença entre conjuntos (a ordem dos fatores altera o conjunto resultante).
+4. Caret (`^`): é um "ou exclusivo"; retorna a união menos a interseção.
+
+Exemplos:
+```python
+a, b = {1,2,3,4,5}, {2,4,6,8}
+
+# União
+print(a | b) # Resultado: {1, 2, 3, 4, 5, 6, 8}
+
+# Interseção
+print(a & b) # Resultado: {2, 4}
+
+# Diferença
+print(a - b) # Resultado: {1, 3, 5}
+print(b - a) # Resultado: {8, 6}
+
+# Ou exclusivo.
+print(a ^ b) # 2 e 4 estão na interseção; não aparecem no resultado.
+# Resultado: {1, 3, 5, 6, 8}
+```

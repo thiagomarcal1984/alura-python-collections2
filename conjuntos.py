@@ -34,3 +34,20 @@ print('Há ainda o operador "ou" (pipe, |) para unir conjuntos:')
 print({1,2,3} | {2,4,6})
 print('O operador "ou" (pipe, |) não funciona para listas.')
 # print([1,2,3] | [2,4,6]) # Vai quebrar.
+
+a, b = {1,2,3,4,5}, {2,4,6,8}
+print('O operador "ou" (pipe, |) une conjuntos:')
+print(a | b) 
+
+print('O operador "e" (ampersand, &) retorna a interseção:')
+print(a & b) 
+# Resultado: {2, 4}
+
+print('O operador "diferença" (hifen, -) retorna a diferença.')
+print('Repare que a ordem dos conjuntos afeta o resultado:')
+print(a - b) # Resultado: {1, 3, 5}
+print(b - a) # Resultado: {8, 6}
+
+print('O operador "ou exclusivo" (caret, ^) retorna a união menos a interseção:')
+print(a ^ b) # 2 e 4 estão na interseção; não aparecem no resultado.
+# Resultado: {1, 3, 5, 6, 8}
